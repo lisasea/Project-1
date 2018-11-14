@@ -16,17 +16,79 @@ FSJS project 1 - A Random Quote Generator
       quote object.
 ***/
 
+var quotes = [
+  {
+    quote: 'Do not feel lonely, the entire Universe is inside you.',
+    source: 'Rumi',
+    citation: 'Persian Mystic Poet',
+    year: '--13th Century'
+  },
+  {
+    quote: 'Even after all this time, the sun never says to the earth, "You owe me."  Look what happens with a love like that.  It lights the whole sky.',
+    source: 'Hafiz',
+    citation: 'Persian Poet',
+    year: '--14th Century' 
+  },
+  {
+    quote: 'The morning breeze has secrets to tell you. Do not go back to sleep.',
+    source: 'Rumi',
+    citation: 'Persian Mystic Poet',
+    year: '--13th Century'
+  },
+  { 
+    quote: 'Where is the Door to God?  In the sound of a dog barking, in the ring of a hammer, in a drop of rain in the face of Everyone I see.',
+    source: 'Hafiz',
+    citation: 'Persian Poet',
+    year: '--14th Century' 
+  },
+  {
+    quote: 'The wound is the place where the light enters you.',
+    source: 'Rumi',
+    citation: 'Persian Mystic Poet',
+    year: '--13th Century'
+  },
+  {
+    quote: 'Out beryond the ideas of wrong-doing and right-doing there is a field.  I will meet you there.',
+    source: 'Rumi',
+    citation: 'Persian Mystic Poet',
+    year: '--13th Century'
+  },
+  {
+    quote: 'And forget not that the earth delights to feel your bare feet and the winds long to play with your hair.',
+    source: 'Kahlil Gibran',
+    citation: 'The Prophet',
+    year: '--1923'
+  },
+]
+
+console.log (quotes);
+console.log (quotes);
+console.log
 
 
+
+//quotes [0]
+  quotes[1]
+  quotes[2]  etc
 
 /***
   Create the `getRandomQuote` function to:
    - generate a random number 
+
    - use the random number to `return` a random quote object from the 
      `quotes` array.
 ***/
 
+function getRandomQuote(lower, upper) {
+  var array = Math.floor( Math.random() *  (upper - lower)) + lower;
+  return random;
+}
+getRandomQuote();
+getRandomQuote();
+getRandomQuote();
+getRandomQuote();
 
+//alert ()
 
 
 /***
@@ -39,6 +101,9 @@ FSJS project 1 - A Random Quote Generator
    - set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
+function printQuote(); {
+
+}
 
 
 
