@@ -72,6 +72,7 @@ var quotes = [
 
 function getRandomQuote() {
   var randomNumberQuote = quotes[Math.floor( Math.random() * quotes.length)];
+  return randomNumberQuote;
 }
 
 
@@ -88,19 +89,18 @@ function getRandomQuote() {
 
 
 function printQuote (){
-  var displayQuote;
-  var stringOfQuoteProperties;
-  getRandomQuote;
-  if (quotes.citation = '') {
-    displayQuote = quotes.quote + quotes.source + quotes.ethnicity + quotes.citation;
+  var displayQuote = getRandomQuote();
+  var htmlQuote;
+ if (quotes.citation = '') {
+    htmlQuote = quotes.quote + quotes.source + quotes.ethnicity + quotes.citation;
   } 
   if (quotes.year = '') {
-    displayQuote = quotes.quote + quotes.source + quotes.ethnicity + quotes.citation + quotes.year;
+    htmlQuote = quotes.quote + quotes.source + quotes.ethnicity + quotes.citation + quotes.year;
   }
   else {
-    displayQuote = quotes.quote + quotes.source + quotes.ethnicity;
+    htmlQuote = quotes.quote + quotes.source + quotes.ethnicity;
   }
- document.getElementById('quote-box').innerHTML = displayQuote;
+ document.getElementById('quote-box').innerHTML = htmlQuote;
  console.log();
   }
 
