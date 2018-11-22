@@ -20,56 +20,46 @@ var quotes = [
   {
     quote: 'Do not feel lonely, the entire Universe is inside you.',
     source: 'Rumi',
-    citation: 'Persian Mystic Poet',
-    year: '--13th Century'
+    ethnicity: 'Persian Poet'
   },
   {
     quote: 'Even after all this time, the sun never says to the earth, "You owe me."  Look what happens with a love like that.  It lights the whole sky.',
     source: 'Hafiz',
-    citation: 'Persian Poet',
-    year: '--14th Century' 
+    citation: 'The Gift: Poems by Hafiz',
+    year: '--14th Century',
+    ethnicity: 'Persian Poet' 
   },
   {
     quote: 'The morning breeze has secrets to tell you. Do not go back to sleep.',
     source: 'Rumi',
     citation: 'Persian Mystic Poet',
-    year: '--13th Century'
+    year: '--13th Century',
+    ethnicity: 'Persian Poet'
   },
   { 
     quote: 'Where is the Door to God?  In the sound of a dog barking, in the ring of a hammer, in a drop of rain in the face of Everyone I see.',
     source: 'Hafiz',
-    citation: 'Persian Poet',
-    year: '--14th Century' 
+    ethnicity: 'Persian Poet'
   },
   {
     quote: 'The wound is the place where the light enters you.',
     source: 'Rumi',
-    citation: 'Persian Mystic Poet',
-    year: '--13th Century'
+    ethnicity: 'Persian Poet'
   },
   {
     quote: 'Out beryond the ideas of wrong-doing and right-doing there is a field.  I will meet you there.',
     source: 'Rumi',
-    citation: 'Persian Mystic Poet',
-    year: '--13th Century'
+    ethnicity: 'Persian Poet'
   },
   {
     quote: 'And forget not that the earth delights to feel your bare feet and the winds long to play with your hair.',
     source: 'Kahlil Gibran',
     citation: 'The Prophet',
-    year: '--1923'
+    year: '--1923',
+    ethnicity: 'Lebanese Poet'
   },
 ]
 
-console.log (quotes);
-console.log (quotes);
-console.log
-
-
-
-//quotes [0]
-  quotes[1]
-  quotes[2]  etc
 
 /***
   Create the `getRandomQuote` function to:
@@ -79,16 +69,11 @@ console.log
      `quotes` array.
 ***/
 
-function getRandomQuote(lower, upper) {
-  var array = Math.floor( Math.random() *  (upper - lower)) + lower;
-  return random;
-}
-getRandomQuote();
-getRandomQuote();
-getRandomQuote();
-getRandomQuote();
 
-//alert ()
+function getRandomQuote() {
+  var randomNumberQuote = quotes[Math.floor( Math.random() * quotes.length)];
+}
+
 
 
 /***
@@ -101,9 +86,57 @@ getRandomQuote();
    - set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
 
-function printQuote(); {
 
-}
+function printQuote (){
+  var displayQuote;
+  var stringOfQuoteProperties;
+  getRandomQuote;
+  if (quotes.citation = '') {
+    displayQuote = quotes.quote + quotes.source + quotes.ethnicity + quotes.citation;
+  } 
+  if (quotes.year = '') {
+    displayQuote = quotes.quote + quotes.source + quotes.ethnicity + quotes.citation + quotes.year;
+  }
+  else {
+    displayQuote = quotes.quote + quotes.source + quotes.ethnicity;
+  }
+ document.getElementById('quote-box').innerHTML = displayQuote;
+ console.log();
+  }
+
+printQuote
+
+// where and how do I put this code into the program to write the html quotes
+// <p class='quote'> quotes.quote </p>
+// <p class='source'> qutoes.source </p>
+// <span class='citation'> qutoes.citation </span>
+// <span class='year'> quotes.year </span>
+// </p>
+
+
+  
+//REGGIE help! create a variable that calls the getRandomQuote() function, passing in the quotes arrayas an argument. 
+// Does my code do that?
+// getRandomQuote function workable?
+// Do I need to call the printQuote (final code statement? or does the final code statement provided...
+// document.getElementById('loadQuote').addEventListener("click", printQuote, false);)
+// printQuote function  is the ' ' in   if(quotes.citation = ''){} corect?
+// code correct? 
+// how to preview / test code.  When I drag code up into browser what am I seeing?  Is it just a print out of the code written?  
+// how do I test the code I have written?
+// how to save to gitHub
+// should I also save on my laptop?  and how?
+// my next steps:  delete comments provided. put in my own comments. submit project for review. celebrate!
+
+
+//create a variable that initiates your html string
+//using the template in the project instrucgtion, add the two default properties
+//if there is a quote.citation property. add it to the string
+//if there is a qutoe. year property, add it to the string
+//close the string withj the necessary closing html tages
+//set the inner html of the .quote-box to the complete html string
+//console.log method to variables and values
+
 
 
 
@@ -113,6 +146,7 @@ function printQuote(); {
   function. So do not make any changes to the line of code below this 
   comment.
 ***/
+
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
