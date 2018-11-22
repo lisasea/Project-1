@@ -91,14 +91,14 @@ function getRandomQuote() {
 function printQuote (){
   var displayQuote = getRandomQuote();
   var htmlQuote;
- if (quotes.citation = '') {
-    htmlQuote = quotes.quote + quotes.source + quotes.ethnicity + quotes.citation;
+if (displayQuote.citation = '') {
+    htmlQuote = displayQuote.quote + displayQuote.source + displayQuote.ethnicity + displayQuote.citation;
   } 
-  if (quotes.year = '') {
-    htmlQuote = quotes.quote + quotes.source + quotes.ethnicity + quotes.citation + quotes.year;
+  if (displayQuote.year = '') {
+    htmlQuote = displayQuote.quote + displayQuote.source + quotes.ethnicity + displayQuote.citation + displayQuote.year;
   }
   else {
-    htmlQuote = quotes.quote + quotes.source + quotes.ethnicity;
+    htmlQuote = displayQuote.quote + displayQuote.source + displayQuote.ethnicity;
   }
  document.getElementById('quote-box').innerHTML = htmlQuote;
  console.log();
