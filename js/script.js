@@ -10,7 +10,7 @@ FSJS project 1 - A Random Quote Generator
 var quotes = [
   {
     quote: 'Do not feel lonely, the entire Universe is inside you.',
-    source: 'Rumi',
+    source: 'Rumi  ',
     ethnicity: 'Persian Poet'
   },
   {
@@ -29,17 +29,17 @@ var quotes = [
   },
   { 
     quote: 'Where is the Door to God?  In the sound of a dog barking, in the ring of a hammer, in a drop of rain in the face of Everyone I see.',
-    source: 'Hafiz',
+    source: 'Hafiz  ',
     ethnicity: 'Persian Poet'
   },
   {
     quote: 'The wound is the place where the light enters you.',
-    source: 'Rumi',
+    source: 'Rumi  ',
     ethnicity: 'Persian Poet'
   },
   {
-    quote: 'Out beryond the ideas of wrong-doing and right-doing there is a field.  I will meet you there.',
-    source: 'Rumi',
+    quote: 'Out beyond the ideas of wrong-doing and right-doing there is a field.  I will meet you there.',
+    source: 'Rumi  ',
     ethnicity: 'Persian Poet'
   },
   {
@@ -59,6 +59,9 @@ var colors = [
   "Thistle"
 ];
 
+var timer;
+var interval;
+
 function getRandomQuote() {
   var randomNumberQuote = quotes[Math.floor( Math.random() * quotes.length)];
   return randomNumberQuote;
@@ -69,15 +72,29 @@ function getRandomColor() {
   return randomColor;
 }
 
+function autoRefresh() {
+  clearInterval(interval);
+  timer *= 20;
+  interval = setInterval(autoRefresh, timer);
+}
+interval = setInterval(autoRefresh, timer);
+
+
 function printQuote (){
   var displayQuote = getRandomQuote();
   var displayColor = getRandomColor();
-  var htmlQuote;
+  var startTimer = autoRefresh();
+  var htmlQuote = '';
 
   if (displayQuote.citation === undefined || displayQuote.year === undefined) {
-    htmlQuote = htmlQuote + '<p class="quote">' + displayQuote["quote"] + '</p> <p class="source">' + displayQuote["source"] + '<span class="ethnicity">' + displayQuote["ethnicity"];
+    htmlQuote += '<p class="quote">' + displayQuote.quote + '<p class="source">' + displayQuote.source;
+    htmlQuote += '<span class="ethnicity">' + displayQuote.ethnicity + '</span>' + '</p>';
   } else {
-    htmlQuote = htmlQuote + '<p class="quote">' + displayQuote["quote"] + '</p> <p class="source">' + displayQuote["source"] + '<span class="citation">' + displayQuote["citation"] + '</span><span class="year">' + displayQuote["year"] + displayQuote["ethnicity"] + '</span></p>';
+    htmlQuote += '<p class="quote">' + displayQuote.quote;
+    htmlQuote += '<p class="source">' + displayQuote.source;
+    htmlQuote += '<span>' + displayQuote.ethnicity + '</span>';
+    htmlQuote += '<span class="citation">' + displayQuote.citation + '</span>';
+    htmlQuote += '<span class="year">' + displayQuote.year + '</span>' +'</p>';
   }
 
 document.getElementById('quote-box').innerHTML = htmlQuote;
@@ -87,35 +104,17 @@ document.body.style.backgroundColor = displayColor;
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
  
 /***
+ 
     ${quote}  <span class="source">${source}<span> <span class="ethnicity">${ethnicity}<span> <span> class="citation">${citation}<span> <span> class="year">${year}<span></p>`
   } else {
-    htmlQuote = `<p class="quote"> ${quote}  <span class="source">${source}<span> <span class="ethnicity">${ethnicity}<span> <span></p>`
-  } 
+ 
 
-  /* if (displayQuote.citation = '') {
-    //htmlQuote = displayQuote.quote + displayQuote.source + displayQuote.ethnicity + displayQuote.citation;
-    //htmlQuote = htmlQuote + '<p class="quote">' + '  ' + displayQuote['quote'] + '</p> <p class="source">' + ' ~' + displayQuote['source'] + ';  ' + '</p> <p class="ethnicity">'+ displayQuote['ethnicity'] + '</p> <p class="citation">'+ displayQuote['  citation']; 
-   //<p class="quote">Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.</p>
-    //<p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>
-  htmlQuote = `<p class="quote"> ${quote}  <span class="source">${source}<span> </p>`;
-  //`<p> ${displayQuote.source}</p>` + `<p> ${displayQuote.ethnicity}</p>` + `<p> ${displayQuote.citation}</p>`;
-  } 
-  if (displayQuote.year = '') {
-    htmlQuote = displayQuote.quote + displayQuote.source + quotes.ethnicity + displayQuote.citation + displayQuote.year;
-  }
-  else {
-    htmlQuote = displayQuote.quote + displayQuote.source + displayQuote.ethnicity;
-  }
- document.getElementById('quote-box').innerHTML = htmlQuote;
- console.log();
-  }
-
-  // where and how do I put this code into the program to write the html quotes
-// <p class='quote'> quotes.quote </p>
-// <p class='source'> qutoes.source </p>
-// <span class='citation'> qutoes.citation </span>
-// <span class='year'> quotes.year </span>
-// </p>
+counter = 20;
+autoRefresh = function () {
+  counter *=20;
+  setTimeout(autoRefresh, counter);
+}
+setTimeout(autoRefresh, counter);
 
 
 Create the `getRandomQuote` function to:

@@ -46,7 +46,7 @@ body {
   font-size: 1.25rem;;
   letter-spacing: 0.05em;
   line-height: 1.1;
-  text-align: right;
+  text-align: left;
   margin-right: 4em;
 }
 
@@ -67,6 +67,8 @@ body {
   content: ", ";
   font-style: normal;
 }
+
+
 
 #loadQuote {
   position: fixed;
