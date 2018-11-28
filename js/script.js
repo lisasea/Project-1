@@ -91,8 +91,28 @@ function getRandomQuote() {
 function printQuote (){
   var displayQuote = getRandomQuote();
   var htmlQuote;
-if (displayQuote.citation = '') {
-    htmlQuote = displayQuote.quote + displayQuote.source + displayQuote.ethnicity + displayQuote.citation;
+
+  if (displayQuote.citation = '') {
+    htmlQuote = `<p class="quote"> ${quote}  <span class="source">${source}<span> <span class="ethnicity">${ethnicity}<span> <span> class="citation">${citation}<span> <span> class="year">${year}<span></p>`;
+  } else {
+    htmlQuote = `<p class="quote"> ${quote}  <span class="source">${source}<span> <span class="ethnicity">${ethnicity}<span> <span></p>`;
+  }
+  document.getElementById('quote-box').innerHTML = htmlQuote;
+  console.log();
+}
+
+printQuote
+  
+  
+  
+  
+ /* if (displayQuote.citation = '') {
+    //htmlQuote = displayQuote.quote + displayQuote.source + displayQuote.ethnicity + displayQuote.citation;
+    //htmlQuote = htmlQuote + '<p class="quote">' + '  ' + displayQuote['quote'] + '</p> <p class="source">' + ' ~' + displayQuote['source'] + ';  ' + '</p> <p class="ethnicity">'+ displayQuote['ethnicity'] + '</p> <p class="citation">'+ displayQuote['  citation']; 
+   //<p class="quote">Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.</p>
+    //<p class="source">Patrick McKenzie<span class="citation">Twitter</span><span class="year">2016</span></p>
+  htmlQuote = `<p class="quote"> ${quote}  <span class="source">${source}<span> </p>`;
+  //`<p> ${displayQuote.source}</p>` + `<p> ${displayQuote.ethnicity}</p>` + `<p> ${displayQuote.citation}</p>`;
   } 
   if (displayQuote.year = '') {
     htmlQuote = displayQuote.quote + displayQuote.source + quotes.ethnicity + displayQuote.citation + displayQuote.year;
@@ -101,6 +121,7 @@ if (displayQuote.citation = '') {
     htmlQuote = displayQuote.quote + displayQuote.source + displayQuote.ethnicity;
   }
  document.getElementById('quote-box').innerHTML = htmlQuote;
+ //document.body.style.backgroundColor = selcolor;
  console.log();
   }
 
@@ -115,19 +136,6 @@ printQuote
 
 
   
-//REGGIE help! create a variable that calls the getRandomQuote() function, passing in the quotes arrayas an argument. 
-// Does my code do that?
-// getRandomQuote function workable?
-// Do I need to call the printQuote (final code statement? or does the final code statement provided...
-// document.getElementById('loadQuote').addEventListener("click", printQuote, false);)
-// printQuote function  is the ' ' in   if(quotes.citation = ''){} corect?
-// code correct? 
-// how to preview / test code.  When I drag code up into browser what am I seeing?  Is it just a print out of the code written?  
-// how do I test the code I have written?
-// how to save to gitHub
-// should I also save on my laptop?  and how?
-// my next steps:  delete comments provided. put in my own comments. submit project for review. celebrate!
-
 
 //create a variable that initiates your html string
 //using the template in the project instrucgtion, add the two default properties
