@@ -6,16 +6,7 @@ FSJS project 1 - A Random Quote Generator
 // Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
 
 
-/*** 
-  Create the array of quote objects and name it `quotes`.
-  Add at least five quote objects to the `quotes` array.
-  Give each quote object a `quote` and `source` property.
-
-  Recommended: 
-    - Add at least one `year` and/or `citation` property to at least one 
-      quote object.
-***/
-
+//an array of quotes
 var quotes = [
   {
     quote: 'Do not feel lonely, the entire Universe is inside you.',
@@ -60,53 +51,48 @@ var quotes = [
   },
 ]
 
-
-/***
-  Create the `getRandomQuote` function to:
-   - generate a random number 
-
-   - use the random number to `return` a random quote object from the 
-     `quotes` array.
-***/
-
+//an array of colors to be used to change the background color
+var colors = [
+  "PaleGoldenRod",
+  "PaleTurquoise",
+  "PowderBlue",
+  "Thistle"
+];
 
 function getRandomQuote() {
   var randomNumberQuote = quotes[Math.floor( Math.random() * quotes.length)];
   return randomNumberQuote;
 }
 
-
-
-/***
-  Create the `printQuote` function to: 
-   - call the `getRandomQuote` function and assign it to a variable.
-   - use the properties of the quote object stored in the variable to 
-     create your HTML string.
-   - use conditionals to make sure the optional properties exist before 
-     they are added to the HTML string.
-   - set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
-
+function getRandomColor() {
+  var randomColor = colors[Math.floor(Math.random() * colors.length)];
+  return randomColor;
+}
 
 function printQuote (){
   var displayQuote = getRandomQuote();
+  var displayColor = getRandomColor();
   var htmlQuote;
 
-  if (displayQuote.citation = '') {
-    htmlQuote = `<p class="quote"> ${quote}  <span class="source">${source}<span> <span class="ethnicity">${ethnicity}<span> <span> class="citation">${citation}<span> <span> class="year">${year}<span></p>`;
+  if (displayQuote.citation === undefined || displayQuote.year === undefined) {
+    htmlQuote = htmlQuote + '<p class="quote">' + displayQuote["quote"] + '</p> <p class="source">' + displayQuote["source"] + '<span class="ethnicity">' + displayQuote["ethnicity"];
   } else {
-    htmlQuote = `<p class="quote"> ${quote}  <span class="source">${source}<span> <span class="ethnicity">${ethnicity}<span> <span></p>`;
+    htmlQuote = htmlQuote + '<p class="quote">' + displayQuote["quote"] + '</p> <p class="source">' + displayQuote["source"] + '<span class="citation">' + displayQuote["citation"] + '</span><span class="year">' + displayQuote["year"] + displayQuote["ethnicity"] + '</span></p>';
   }
-  document.getElementById('quote-box').innerHTML = htmlQuote;
-  console.log();
+
+document.getElementById('quote-box').innerHTML = htmlQuote;
+document.body.style.backgroundColor = displayColor;
 }
 
-printQuote
-  
-  
-  
-  
- /* if (displayQuote.citation = '') {
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+ 
+/***
+    ${quote}  <span class="source">${source}<span> <span class="ethnicity">${ethnicity}<span> <span> class="citation">${citation}<span> <span> class="year">${year}<span></p>`
+  } else {
+    htmlQuote = `<p class="quote"> ${quote}  <span class="source">${source}<span> <span class="ethnicity">${ethnicity}<span> <span></p>`
+  } 
+
+  /* if (displayQuote.citation = '') {
     //htmlQuote = displayQuote.quote + displayQuote.source + displayQuote.ethnicity + displayQuote.citation;
     //htmlQuote = htmlQuote + '<p class="quote">' + '  ' + displayQuote['quote'] + '</p> <p class="source">' + ' ~' + displayQuote['source'] + ';  ' + '</p> <p class="ethnicity">'+ displayQuote['ethnicity'] + '</p> <p class="citation">'+ displayQuote['  citation']; 
    //<p class="quote">Every great developer you know got there by solving problems they were unqualified to solve until they actually did it.</p>
@@ -121,18 +107,43 @@ printQuote
     htmlQuote = displayQuote.quote + displayQuote.source + displayQuote.ethnicity;
   }
  document.getElementById('quote-box').innerHTML = htmlQuote;
- //document.body.style.backgroundColor = selcolor;
  console.log();
   }
 
-printQuote
-
-// where and how do I put this code into the program to write the html quotes
+  // where and how do I put this code into the program to write the html quotes
 // <p class='quote'> quotes.quote </p>
 // <p class='source'> qutoes.source </p>
 // <span class='citation'> qutoes.citation </span>
 // <span class='year'> quotes.year </span>
 // </p>
+
+
+Create the `getRandomQuote` function to:
+   - generate a random number 
+
+   - use the random number to `return` a random quote object from the 
+     `quotes` array.
+
+
+//get a random quote by generating a random number and passing the quotes array through it
+  Create the `printQuote` function to: 
+   - call the `getRandomQuote` function and assign it to a variable.
+   - use the properties of the quote object stored in the variable to 
+     create your HTML string.
+   - use conditionals to make sure the optional properties exist before 
+     they are added to the HTML string.
+   - set the `innerHTML` of the `quote-box` div to the HTML string. 
+***/
+ /*
+ 
+  document.getElementById('quote-box').innerHTML = htmlQuote;
+  console.log();
+}
+
+printQuote();
+
+
+
 
 
   
@@ -154,9 +165,3 @@ printQuote
   function. So do not make any changes to the line of code below this 
   comment.
 ***/
-
-
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
-// Remember to delete the comments that came with this file, and replace them with your own code comments.
