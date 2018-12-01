@@ -1,12 +1,10 @@
 /******************************************
-Treehouse Techdegree:
+Treehouse Techdegree: Lisa Carbonell
 FSJS project 1 - A Random Quote Generator
+Aiming for Exceeds Expectation Grade
 ******************************************/
 
-// Study guide for this project - https://drive.google.com/file/d/1s5grutGuQFwJcQP8bFwEI69Q8FCkGdDk/view?usp=sharing
-
-
-//an array of quotes
+// an array of quotes with various properties
 var quotes = [
   {
     quote: 'Do not feel lonely, the entire Universe is inside you.',
@@ -18,14 +16,14 @@ var quotes = [
     source: 'Hafiz',
     citation: 'The Gift: Poems by Hafiz',
     year: '--14th Century',
-    ethnicity: 'Persian Poet' 
+    ethnicity: ' Persian Poet' 
   },
   {
     quote: 'The morning breeze has secrets to tell you. Do not go back to sleep.',
     source: 'Rumi',
     citation: 'Persian Mystic Poet',
     year: '--13th Century',
-    ethnicity: 'Persian Poet'
+    ethnicity: ' Persian Poet'
   },
   { 
     quote: 'Where is the Door to God?  In the sound of a dog barking, in the ring of a hammer, in a drop of rain in the face of Everyone I see.',
@@ -47,7 +45,7 @@ var quotes = [
     source: 'Kahlil Gibran',
     citation: 'The Prophet',
     year: '--1923',
-    ethnicity: 'Lebanese Poet'
+    ethnicity: ' Lebanese Poet'
   },
 ]
 
@@ -59,31 +57,23 @@ var colors = [
   "Thistle"
 ];
 
-var timer;
-var interval;
-
+// a function that gets a random quote by generating a random number and passing the array of quotes above through it to get a random quote
 function getRandomQuote() {
   var randomNumberQuote = quotes[Math.floor( Math.random() * quotes.length)];
   return randomNumberQuote;
 }
 
+// a function that gets a random color by generating a random number and passing the array of colors above through it to get a random color
 function getRandomColor() {
   var randomColor = colors[Math.floor(Math.random() * colors.length)];
   return randomColor;
 }
 
-function autoRefresh() {
-  clearInterval(interval);
-  timer *= 20;
-  interval = setInterval(autoRefresh, timer);
-}
-interval = setInterval(autoRefresh, timer);
-
-
+// a function that gets the random quote and random background color and filters through the array of quotes properties creating an html string 
+// and sets a 20 second interval to change quote if Show Another Quote button is not pushed
 function printQuote (){
   var displayQuote = getRandomQuote();
   var displayColor = getRandomColor();
-  var startTimer = autoRefresh();
   var htmlQuote = '';
 
   if (displayQuote.citation === undefined || displayQuote.year === undefined) {
@@ -96,71 +86,11 @@ function printQuote (){
     htmlQuote += '<span class="citation">' + displayQuote.citation + '</span>';
     htmlQuote += '<span class="year">' + displayQuote.year + '</span>' +'</p>';
   }
-
-document.getElementById('quote-box').innerHTML = htmlQuote;
-document.body.style.backgroundColor = displayColor;
-}
-
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
- 
-/***
- 
-    ${quote}  <span class="source">${source}<span> <span class="ethnicity">${ethnicity}<span> <span> class="citation">${citation}<span> <span> class="year">${year}<span></p>`
-  } else {
- 
-
-counter = 20;
-autoRefresh = function () {
-  counter *=20;
-  setTimeout(autoRefresh, counter);
-}
-setTimeout(autoRefresh, counter);
-
-
-Create the `getRandomQuote` function to:
-   - generate a random number 
-
-   - use the random number to `return` a random quote object from the 
-     `quotes` array.
-
-
-//get a random quote by generating a random number and passing the quotes array through it
-  Create the `printQuote` function to: 
-   - call the `getRandomQuote` function and assign it to a variable.
-   - use the properties of the quote object stored in the variable to 
-     create your HTML string.
-   - use conditionals to make sure the optional properties exist before 
-     they are added to the HTML string.
-   - set the `innerHTML` of the `quote-box` div to the HTML string. 
-***/
- /*
- 
   document.getElementById('quote-box').innerHTML = htmlQuote;
-  console.log();
+  document.body.style.backgroundColor = displayColor;
+  setTimeout(printQuote, 20000);
 }
-
-printQuote();
-
-
-
-
-
-  
-
-//create a variable that initiates your html string
-//using the template in the project instrucgtion, add the two default properties
-//if there is a quote.citation property. add it to the string
-//if there is a qutoe. year property, add it to the string
-//close the string withj the necessary closing html tages
-//set the inner html of the .quote-box to the complete html string
-//console.log method to variables and values
-
-
-
-
-/***
-  When the "Show another quote" button is clicked, the event listener 
-  below will be triggered, and it will call, or "invoke", the `printQuote` 
-  function. So do not make any changes to the line of code below this 
-  comment.
-***/
+// when "Show another quote" button is clicked the event listener is triggerd calling the printQuote function above
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+//sets a 20 second interval to change quote if Show Another Quote button is not pushed
+setTimeout(printQuote, 20000);
