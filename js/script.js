@@ -88,9 +88,9 @@ function printQuote (){
   }
   document.getElementById('quote-box').innerHTML = htmlQuote;
   document.body.style.backgroundColor = displayColor;
-  setTimeout(printQuote, 20000);
+  setInterval(printQuote, 20000);
 }
 // when "Show another quote" button is clicked the event listener is triggerd calling the printQuote function above
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 //sets a 20 second interval to change quote if Show Another Quote button is not pushed
-setTimeout(printQuote, 20000);
+setInterval(printQuote, 20000);
